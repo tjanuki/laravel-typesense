@@ -84,7 +84,8 @@ Route::get('/search', function (Client $client) {
         'query_by' => 'title',
     ]);
 
-    $results = collect($results['hits'])->pluck('document.title');
+//    $results = collect($results['hits'])->pluck('document.title');
+    $results = collect($results['hits'])->pluck('highlight')->flatten(1)->pluck('snippet');
 
     return view('search', [
         'results' => $results,

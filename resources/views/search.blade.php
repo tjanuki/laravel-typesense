@@ -20,7 +20,7 @@
 
 <ul class="border border-gray-300 py-2 px-4">
     @forelse($results as $result)
-        <li>{{ $result }}</li>
+        <li>{!! $result !!}</li>
     @empty
         <li>No matching result</li>
     @endforelse
